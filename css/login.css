@@ -1,0 +1,126 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    width: 100%;
+    background-color: #152029;
+}
+
+header{
+    width: 70%;
+    height: 8vh;
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    justify-content: space-around;
+}
+nav{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(0, 0, 0);
+    border-radius: 10px;
+}
+.foco{
+    color: #14ffef;
+    font-weight: 400;
+}
+nav a:hover{
+    color: #14ffef;
+
+}
+.logo{
+    width: 8vw;
+    margin-right: 15px;
+}
+.navbar{
+    width: 60%;
+    height: 8vh;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.navbar ul a{
+    font-size: 20px;
+}
+
+.navbar2{
+    width: 20%;
+    height: 8vh;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.navbar2 ul a{
+    font-size: 20px;
+    font-weight: bold;
+}
+.navbar2 ul{
+    font-size: 20px;
+    font-weight: bold;
+}
+a{
+    text-decoration: none;
+    color: #FF7314;
+}
+
+
+main{
+    display: flex;
+    width: 100%;
+    margin-top: 15vh;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.diagram h2{
+    color: #FF7314;
+}
+
+.container-login{
+    width: 400px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    background-color: #010305;
+    border-radius: 20px;
+}
+
+.modal-login{
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+.modal-login h1{
+    margin-bottom: 40px;
+    color: #14FFF1;
+}
+.modal-login h3{
+    color: #FF7314;
+}
+
+
+.modal-login input{
+    width: 200px;
+    height: 30px;
+    font-size: 20px;
+}
+
+#btn-login{
+    width: 120px;
+    height: 40px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 50px;
+    background-color: #14FFF1;
+}
