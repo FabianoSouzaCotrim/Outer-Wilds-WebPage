@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Outer Wilds - Cadastrar</title>
     <link rel="stylesheet" href="css/cadastro.css">
+    <link rel="stylesheet" href="css/navbar.css">
 </head>
 <body>
     <header>
@@ -18,7 +19,7 @@
                 <ul><a href="">Comunidade</a></ul>
             </li>
             <li class="navbar2">
-                <ul><a class="foco backcadastro" href="cadastro.html">cadastro</a></ul>
+                <ul><a class="foco backcadastro" href="login.html">login</a></ul>
                 <ul><a href="">Cadastrar</a></ul>
             </li>
         </nav>
@@ -32,10 +33,16 @@
             <div class="modal-cadastro">
                 <h1>Cadastro</h1>
                 <div>
-                <h3>nome:</h3>
+                <h3>Nome:</h3>
                 <input type="text" id="input_nome">
-                <h3>idade:</h3>
+                <h3>Idade:</h3>
                 <input type="text" id="input_idade">
+                <h3>Genero:</h3>
+                <select id="genero">
+                    <option value="masculino">Masculino</option>
+                    <option value="feminino">Feminino</option>
+                    <option value="outros">Outros</option>
+                </select>
                 <h3>Email:</h3>
                 <input type="text" id="input_email">
                 <h3>Senha:</h3>
