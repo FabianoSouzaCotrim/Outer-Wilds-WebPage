@@ -38,11 +38,14 @@ main{
     justify-content: center;
     background-color: #010305;
     border-radius: 20px;
-}
 
+}
+.grid-inputs{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
 .modal-cadastro{
     width: 600px;
-    display: grid;
 }
 .modal-cadastro h1{
     margin-bottom: 20px;
