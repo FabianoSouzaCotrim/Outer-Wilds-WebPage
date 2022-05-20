@@ -7,9 +7,8 @@
 
 body{
     width: 100%;
-    background-color: #152029;
+    background-color: #152028;
 }
-
 
 main{
     display: flex;
@@ -33,31 +32,31 @@ main{
 
 .container-cadastro{
     width: 600px;
-    height: 600px;
+    height: 500px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
     background-color: #010305;
     border-radius: 20px;
+}
 
+.modal-cadastro-grid{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
 }
-.grid-inputs{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
-.modal-cadastro{
-    width: 600px;
-}
-.modal-cadastro h1{
+.container-cadastro h1{
     margin-bottom: 20px;
-    color: #14FFF1;
-}
-.modal-cadastro h3{
-    margin-top: 20px;
     color: #FF7314;
 }
+.container-cadastro h3{
+    margin-top: 20px;
+    color: #14FFF1;
+    font-weight: normal;
+}
 
-
-.modal-cadastro input{
+.container-cadastro input{
     width: 200px;
     height: 30px;
     font-size: 15px;
