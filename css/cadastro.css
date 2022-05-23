@@ -7,7 +7,7 @@
 
 body{
     width: 100%;
-    background-color: #152028;
+    background-color: #191D24;
 }
 
 main{
@@ -32,7 +32,7 @@ main{
 
 .container-cadastro{
     width: 600px;
-    height: 500px;
+    height: 600px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -66,10 +66,15 @@ main{
     outline: none;
     padding: 10px;
 }
+.container-cadastro select{
+    width: 150px;
+    height: 30px;
+    font: 20px;
+}
 
 #btn-cadastro{
     width: 120px;
-    height: 40px;
+    height: 45px;
     font-size: 20px;
     font-weight: bold;
     margin-top: 20px;

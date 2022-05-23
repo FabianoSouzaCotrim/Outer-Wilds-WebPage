@@ -7,7 +7,7 @@
 
 body{
     width: 100%;
-    background-color: #152029;
+    background-color: #191D24;
 }
 
 main{
@@ -32,7 +32,7 @@ main{
 
 .container-login{
     width: 400px;
-    height: 400px;
+    height: 500px;
     display: flex;
     justify-content: center;
     background-color: #010305;
@@ -47,12 +47,13 @@ main{
     margin-top: 30px;
 }
 .modal-login h1{
-    margin-bottom: 20px;
-    color: #14FFF1;
+    margin-bottom: 10px;
+    color: #FF7314;
 }
 .modal-login h3{
-    margin-top: 20px;
-    color: #FF7314;
+    margin-top: 15px;
+    font-weight: normal;
+    color: #14FFF1;
 }
 
 
