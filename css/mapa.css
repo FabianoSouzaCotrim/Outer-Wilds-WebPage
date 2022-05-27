@@ -11,13 +11,13 @@ body{
 }
 main{
     width: 80%;
-    height: 700px;
+    height: 560px;
     background-color: aquamarine;
     margin: 0 auto;
     margin-top: 8vh;
     display: flex;
     justify-content: center;
 }
-main h1{
-    color: ;
+main h2{
+    color: #ffffff;
 }
