@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:wght@100&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+header{
+    width: 80%;
+    height: 8vh;
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    justify-content: space-around;
+    border-radius: 10px;
+}
+nav{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.inicio{
+    color: #14ffef;
+    font-weight: 400;
+}
+nav a:hover{
+    color: #14ffef;
+
+}
+.logo{
+    width: 8vw;
+    margin-right: 50px;
+}
+.logo2{
+    width: 180px;
+}
+.navbar{
+    width: 90%;
+    height: 8vh;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.navbar a{
+    font-size: 20px;
+}
+
+.navbar2{
+    width: 30%;
+    height: 8vh;
+    margin-left: 100px;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.navbar2 a{
+    font-size: 20px;
+    font-weight: bold;
+}
+.navbar3{
+    display: flex;
+    align-items: center;
+    color: white;
+}
+.navbar3{
+    display: flex;
+    align-items: center;
+
+}
+.fotoUsuario{
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+    background-image: url("/public/css/img/fotoPerfil.png");
+    background-size: cover;
+}
+#nomeUsuario{
+    margin-right: 50px;
+    color: #ffffff;
+}
+
+.login-laranja{
+    width: 90px;
+    height: 100%;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FF7314;
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
+    color: #000000;
+}
+a{
+    text-decoration: none;
+    color: #FF7314;
+}
