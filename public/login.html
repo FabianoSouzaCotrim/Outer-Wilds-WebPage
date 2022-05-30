@@ -18,6 +18,7 @@
                 <ul><a href="">Personagens</a></ul>
                 <ul><a href="mapaEspacial.html">Mapa Espacial</a></ul>
                 <ul><a href="">Comunidade</a></ul>
+                <ul><a href="dashboard.html">Dashboard</a></ul>
             </li>
             <li class="navbar2">
                 <a class="login-laranja" href="#"><ul>Login</ul></a>
@@ -40,7 +41,7 @@
                 <h3>Senha:</h3>
                 <input type="password" id="input_senha">
                 </div>
-                <button id="btn-login">Login</button>
+                <button onclick="entrar()" id="btn-login">Login</button>
             </div>
         </div>
     </main>
@@ -48,19 +49,19 @@
 </html>
 <script>
      function entrar() {
-        aguardar();
+        /* aguardar(); */
 
         var emailVar = input_login.value;
         var senhaVar = input_senha.value;
-
-        if (emailVar == "" || senhaVar == "") {
+        console.log(emailVar + senhaVar)
+/*         if (emailVar == "" || senhaVar == "") {
             alert("Mensagem de erro para todos os campos em branco");
             finalizarAguardar();
             return false;
         }
         else {
             setInterval(sumirMensagem, 5000)
-        }
+        } */
 
         console.log("FORM LOGIN: ", emailVar);
         console.log("FORM SENHA: ", senhaVar);
@@ -89,7 +90,7 @@
                     sessionStorage.ID_USUARIO = json.id;
 
                     setTimeout(function () {
-                        window.location = "./dashboard/cards.html";
+                        window.location = "./index.html";
                     }, 1000); // apenas para exibir o loading
 
                 });
@@ -100,7 +101,7 @@
 
                 resposta.text().then(texto => {
                     console.error(texto);
-                    finalizarAguardar(texto);
+                    /* finalizarAguardar(texto); */
                 });
             }
 
