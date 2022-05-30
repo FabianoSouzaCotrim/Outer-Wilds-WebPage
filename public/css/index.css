@@ -11,9 +11,28 @@ body{
 }
 
 main{
-    background-color: #191d24d8;
+    background-color: #101318d8;
     width: 80%;
     height: 1600px;
     margin: 0 auto;
-    margin-top: 8vh;
+    margin-top: 10vh;
+}
+
+.section_historia{
+    width: 100%;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+}
+
+.div_historia{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.texto_historia{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

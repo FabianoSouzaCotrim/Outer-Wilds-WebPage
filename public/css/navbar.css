@@ -6,10 +6,24 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
+::-webkit-scrollbar {
+    width: 15px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: #FF7314;
+    border: 1px solid black;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: #00FFFF;
+    border: 1px solid black;
+  }
 
 header{
     width: 80%;
-    height: 8vh;
+    height: 10vh;
     display: flex;
     position: fixed;
     top: 0;
@@ -17,6 +31,7 @@ header{
     transform: translateX(-50%);
     justify-content: space-around;
     border-radius: 10px;
+    background-color: #000000;
 }
 nav{
     width: 100%;
@@ -32,46 +47,42 @@ nav a:hover{
 
 }
 .logo{
-    width: 8vw;
+    width: 10vw;
     margin-right: 50px;
 }
 .logo2{
     width: 180px;
 }
 .navbar{
-    width: 90%;
-    height: 8vh;
+    width: 98%;
+    height: 10vh;
     list-style: none;
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 .navbar a{
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .navbar2{
-    width: 30%;
+    width: 20%;
     height: 8vh;
-    margin-left: 100px;
+    margin-left: 50px;
     list-style: none;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    align-self: center;
 }
 .navbar2 a{
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
 }
 .navbar3{
-    display: flex;
+    display: none;
     align-items: center;
     color: white;
-}
-.navbar3{
-    display: flex;
-    align-items: center;
-
 }
 .fotoUsuario{
     width: 40px;
