@@ -18,7 +18,7 @@
         <nav>
             <li class="navbar">
                 <ul><a href="index.html">Inicio</a></ul>
-                <ul><a href="">Personagem</a></ul>
+                <ul><a href="">Personagens</a></ul>
                 <ul><a href="MapaEspacial.html">Mapa Espacial</a></ul>
                 <ul><a href="">Comunidade</a></ul>
             </li>
@@ -65,7 +65,7 @@
 </html>
 <script>
     function cadastrar() {
-        /* aguardar(); */
+    /*aguardar(); */
 
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
@@ -78,13 +78,13 @@
 
 /*         if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
             alert("teste")
-            /* finalizarAguardar(); */
-            /* return false; */ 
-/*         }
+            finalizarAguardar();
+            return false;
+        }
         else {
             setInterval(sumirMensagem, 5000)
-        } */
-
+        }
+ */
         // Enviando o valor da nova input
         fetch("/usuarios/cadastrar", {
             method: "POST",
@@ -112,8 +112,8 @@
                     window.location = "login.html";
                 }, "2000")
                 
-                /* limparFormulario(); */
-                /* finalizarAguardar(); */
+/*                 limparFormulario();
+                finalizarAguardar(); */
             } else {
                 throw ("Houve um erro ao tentar realizar o cadastro!");
             }
