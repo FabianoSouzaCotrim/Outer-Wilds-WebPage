@@ -25,7 +25,7 @@
             </li>
             <li class="navbar2">
                 <a class="login-laranja" href="login.html"><ul>Login</ul></a>
-                <ul><a href="#">Cadastrar</a></ul>
+                <ul><a class="foco" href="#">Cadastrar</a></ul>
             </li>
         </nav>
     </header>
@@ -77,15 +77,10 @@
         var senhaVar = input_senha.value;
         var confirmacaoSenhaVar = input_repetir_senha.value;
 
-/*         if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
-            alert("teste")
-            finalizarAguardar();
-            return false;
+        if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+            alert("INSIRA DADOS NO CADASTRO")
         }
         else {
-            setInterval(sumirMensagem, 5000)
-        }
- */
         // Enviando o valor da nova input
         fetch("/usuarios/cadastrar", {
             method: "POST",
@@ -125,5 +120,5 @@
 
         return false;
     }
-
+}
 </script>

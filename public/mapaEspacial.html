@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Outer Wilds</title>
+    <link rel="stylesheet" href="css/navbarNormal.css">
     <link rel="stylesheet" href="css/mapa.css">
-    <link rel="stylesheet" href="css/navbar.css">
     <link rel="icon" type="imagem/webp" href="css/img/OuterWildslogo.webp" />
 </head>
 <body>
@@ -14,9 +14,9 @@
         <nav>
             <a  href="/"><img class="logo" src="css/img/outerWildsLogo.png"></a>
             <li class="navbar">
-                <ul><a class="foco" href="index.html">Inicio</a></ul>
+                <ul><a href="index.html">Inicio</a></ul>
                 <ul><a href="">Personagens</a></ul>
-                <ul><a href="">Mapa Espacial</a></ul>
+                <ul><a class="foco" href="">Mapa Espacial</a></ul>
                 <ul><a href="">Comunidade</a></ul>
                 <ul><a href="dashboard.html">Dashboard</a></ul>
             </li>
@@ -25,17 +25,17 @@
                 <ul><a href="cadastro.html">Cadastrar</a></ul>
             </li>
             <li class="navbar3">
-                <div class="fotoUsuario"></div><h3 id="nomeUsuario">Fabiano</h3>
+                <div class="fotoUsuario"></div><h3 id="nomeUsuario">Fabiano</h3> <span onclick="limparSessao()">Sair</span>
             </li>
         </nav>
     </header>
     <main>
         <h2>Mapa Espacial</h2>
         <div class="mapa">
-
+            <span id="ampulheta">Gêmeos da ampulheta</span>
         </div>
     </main>
     <footer><h3>todos direitos reservados Fabiano Souza</h3></footer>
 </body>
 </html>
-<script src="js/verificarSessao.js"></script>
+<script src="js/validarSessao.js"></script>

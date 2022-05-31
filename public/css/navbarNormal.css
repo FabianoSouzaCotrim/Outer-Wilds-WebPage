@@ -25,10 +25,7 @@ header{
     width: 80%;
     height: 10vh;
     display: flex;
-    position: fixed;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    margin: 0 auto;
     justify-content: space-around;
     border-radius: 10px;
     background-color: #000000;
