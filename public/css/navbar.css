@@ -79,16 +79,28 @@ nav a:hover{
     font-size: 18px;
     font-weight: bold;
 }
+@media only screen and (max-width: 1366px){
+    .navbar a{
+        font-size: 16px;
+    }
+    .navbar3{
+        display: none;
+        align-items: center;
+        color: white;
+        margin-left: 50px;
+    }
+}
 .navbar3{
     display: none;
     align-items: center;
     color: white;
+    margin-left: 50px;
 }
 .fotoUsuario{
     width: 40px;
     height: 40px;
     margin-right: 20px;
-    background-image: url("/public/css/img/fotoPerfil.png");
+    background-image: url("/css/img/fotoPerfil.png");
     background-size: cover;
 }
 #nomeUsuario{
