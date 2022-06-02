@@ -13,28 +13,21 @@ body{
 main{
     background-color: #101318d8;
     width: 80%;
-    height: 2100px;
+    height: 1600px;
     margin: 0 auto;
     margin-top: 10vh;
 }
 
-.section_personagem{
-    width: 100%;
-    display: flex;
-    flex-direction:column;
-    align-items: center;
-    padding-top: 20px;
-}
-
-.div_historia{
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    margin-top: 10vh;
-}
-
-.texto_historia{
+.section_votocao{
     display: flex;
     flex-direction: column;
-    align-items: center;
+}
+
+
+.titulo1{
+    
+}
+
+.div_voto_personagem{
+
 }
