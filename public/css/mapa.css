@@ -10,8 +10,6 @@ body{
     background-repeat: no-repeat;
 }
 main{
-/*     width: 1000px;
-    height: 560px; */
     width: 80%;
     height: 80vh;
     background-image:url('img/Planetas/outerwildsmapsource.png');
