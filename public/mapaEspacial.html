@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,33 +10,149 @@
     <link rel="stylesheet" href="css/mapa.css">
     <link rel="icon" type="imagem/webp" href="css/img/OuterWildslogo.webp" />
 </head>
+
 <body>
     <header>
         <nav>
-            <a  href="/"><img class="logo" src="css/img/outerWildsLogo.png"></a>
+            <a href="/"><img class="logo" src="css/img/outerWildsLogo.png"></a>
             <li class="navbar">
                 <ul><a href="index.html">Inicio</a></ul>
-                <ul><a href="">Personagens</a></ul>
+                <ul><a href="personagens.html">Personagens</a></ul>
                 <ul><a class="foco" href="">Mapa Espacial</a></ul>
-                <ul><a href="">Comunidade</a></ul>
+                <ul><a href="dashboard/dashboard.html">Comunidade</a></ul>
                 <ul><a href="dashboard.html">Dashboard</a></ul>
             </li>
             <li class="navbar2">
-                <a class="login-laranja" href="login.html"><ul>Login</ul></a>
+                <a class="login-laranja" href="login.html">
+                    <ul>Login</ul>
+                </a>
                 <ul><a href="cadastro.html">Cadastrar</a></ul>
             </li>
             <li class="navbar3">
-                <div class="fotoUsuario"></div><h3 id="nomeUsuario">Fabiano</h3> <span onclick="limparSessao()">Sair</span>
+                <div class="fotoUsuario"></div>
+                <h3 id="nomeUsuario">Fabiano</h3> <span onclick="limparSessao()">Sair</span>
             </li>
         </nav>
     </header>
     <main>
         <h2>Mapa Espacial</h2>
-        <div class="mapa">
-            <span id="ampulheta">Gêmeos da ampulheta</span>
+        <div style="display: none;" id="modalPlaneta">
+            <button onclick="fecharModal()">X</button>
+            <div id="modalTitulo"></div>
+            <div id="fotoModalPlaneta"></div>
+            <id id="modalPlanetaTexto"></id>
         </div>
+
+        <!--  Planetas -->
+        <div onclick="abrirModal('ampulheta')" id="ampulheta">
+            <span>Gêmeos da Ampulheta</span>
+        </div>
+
+        <div onclick="abrirModal('recanto')" id="recanto">
+            <span>Recanto Lenhoso</span>
+        </div>
+
+        <div onclick="abrirModal('valeIncerto')" id="valeIncerto">
+            <span>Vale Incerto</span>
+        </div>
+
+        <div onclick="abrirModal('profundezas')" id="profundezas">
+            <span>Profundezas do Gigante</span>
+        </div>
+
+        <div onclick="abrirModal('embrolho')" id="embrolho">
+            <span>Embrolho Sombrio</span>
+        </div>
+
+        <div onclick="abrirModal('xereta')" id="xereta">
+            <span>O Xereta</span>
+        </div>
+        <!--  Planetas -->
+
     </main>
-    <footer><h3>todos direitos reservados Fabiano Souza</h3></footer>
+    <footer>
+        <h3>todos direitos reservados Fabiano Souza</h3>
+    </footer>
 </body>
+
 </html>
+<script>
+    function limparModal() {
+        modalTitulo.innerHTML = ``
+        modalPlanetaTexto.innerHTML = ``
+        modalPlanetaTexto.innerHTML = ``
+    }
+
+    function fecharModal() {
+        modalPlaneta.style.display = "none"
+        limparModal()
+    }
+
+    function abrirModal(planeta) {
+        modalPlaneta.style.display = `block`
+        switch (planeta) {
+            case 'ampulheta':
+
+                modalTitulo.innerHTML = `<h2>Gêmeos da Ampulheta</h2>`
+                fotoModalPlaneta.innerHTML = `<img src="/public/css/img/Planetas/antigas/gemeos.png">`
+                modalPlanetaTexto.innerHTML = `<span><b>Os Gêmeos Ampulheta</b> (Hourglass Twins) são planetas binários orbitando um ao outro. Ember Twin é principalmente
+             rocha desértica dividida em duas metades por um amplo cânion equatorial, e Ash Twin é quase
+              inteiramente feita de areia colocada sobre um núcleo preto e rochoso. Ambos os planetas orbitam
+               muito perto do Sol.
+            A atração gravitacional dos planetas gêmeos um sobre o outro muda de tempos em tempos, resultando
+             em um fenômeno natural em que a areia é passada de um para o outro ao longo de cerca de vinte minutos
+             , criando o efeito "ampulheta".
+            Um minuto no ciclo do jogo, o Ember Twin começará a puxar areia do Ash Twin. Assim que o fluxo de areia parar, o
+            ciclo atual logo chegará ao fim.</span>`
+                break
+            case 'recanto':
+
+                modalTitulo.innerHTML = `<h2>Recanto Lenhoso</h2>`
+                fotoModalPlaneta.innerHTML = `<img src="/public/css/img/Planetas/antigas/timberhearth.png">`
+                modalPlanetaTexto.innerHTML = `<span><b>Recanto Lenhoso</b> (Timber Hearth) é o planeta natal dos Hearthianos e onde o jogador começa sua jornada. Tem uma
+                     composição principalmente rochosa acentuada com florestas, cumes e cachoeiras. O terreno tem pouca variação fora das planícies relvadas, 
+                     montanhas e grandes crateras, uma das quais forma a área da aldeia Hearthiana.</span>`
+                break
+            case 'valeIncerto':
+
+                modalTitulo.innerHTML = `<h2>Vale Incerto</h2>`
+                fotoModalPlaneta.innerHTML = `<img src="/public/css/img/Planetas/antigas/brittleHollow.jpg">`
+                modalPlanetaTexto.innerHTML = `<span><b>Vale Incerto</b> (Brittle Hollow) é o terceiro dos seis planetas do sistema solar 
+                    de Outer Wilds. Condizente com seu nome, o planeta consiste em uma crosta rochosa quebradiça, 
+                    cercando um interior oco com um grande buraco negro servindo como núcleo do planeta. Os bombardeios
+                     regulares da lua do planeta fazem com que fragmentos da crosta frágil se quebrem ao longo do ciclo,
+                      caindo no núcleo do buraco negro.
+                    O planeta é o lar de inúmeras estruturas Nomai espalhadas sobre e sob a crosta do planeta, incluindo a enorme Cidade Suspensa,
+                    a Torre do Conhecimento Quântico , o Observatório do Sul , um Canhão de Gravidade e a Forja do Buraco Negro usada pelos Nomai
+                    para criar a dobra. núcleos para o Projeto Ash Twin .</span>`
+                break
+            case 'profundezas':
+
+                modalTitulo.innerHTML = `<h2>Profundezas do Gigante</h2>`
+                fotoModalPlaneta.innerHTML = `<img src="/public/css/img/Planetas/antigas/profundezasGigante.jpg">`
+                modalPlanetaTexto.innerHTML = `<span><b>Profundezas do Gigante</b> (Giant's Deep) é um planeta oceânico feito de camadas fluidas 
+                    cada vez mais densas, com cinco pequenas ilhas na superfície. Cheios de clima turbulento e uma atmosfera densa, ciclones maciços freqüentemente
+                     se formam e viajam ao longo da superfície da água. O planeta tem um núcleo de coral cercado por um fluido muito denso.</span>`
+                break
+            case 'embrolho':
+
+                modalTitulo.innerHTML = `<h2>Embrolho Sombrio</h2>`
+                fotoModalPlaneta.innerHTML = `<img src="/public/css/img/Planetas/antigas/Dark_Bramble.jpg">`
+                modalPlanetaTexto.innerHTML = `<span><b>Embrolho Sombrio</b> (Dark Bramble) é uma grande e confusa rede de trepadeiras 
+                    retorcidas e passagens de teletransporte, os restos implodidos de um quinto planeta que há muito foi infectado e invadido pelo 
+                    crescimento de plantas que dobram o espaço. É o único planeta a apresentar vida selvagem hostil na forma de tamboril</span>`
+                break
+            case 'xereta':
+
+                modalTitulo.innerHTML = `<h2>O Xereta</h2>`
+                fotoModalPlaneta.innerHTML = `<img src="/public/css/img/Planetas/antigas/interloper.jpg">`
+                modalPlanetaTexto.innerHTML = `<span><b>O Xereta</b> (Interloper) é um cometa em uma órbita altamente elíptica ao redor do sol.
+                     É relativamente pequeno, mas é bastante fácil de pousar. Devido à falta de gravidade do Interloper em seu interior, seria aconselhável
+                      explorar este cometa na parte mais alta de sua órbita ou é possível ser puxado para o Sol . É o mais novo objeto celeste do sistema solar
+                       e é a origem de toda a Matéria Fantasma no sistema solar.
+                    Aproximadamente 20 minutos no ciclo (2 minutos até o sol se tornar uma supernova), o Intruso colidirá com o sol e será destruído.</span>`
+                break
+        }
+    }
+</script>
 <script src="js/validarSessao.js"></script>

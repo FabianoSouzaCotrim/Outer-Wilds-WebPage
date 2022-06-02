@@ -10,30 +10,226 @@ body{
     background-repeat: no-repeat;
 }
 main{
-    width: 1000px;
-    height: 560px;
-    background-image:url('img/outerwildsmap.png');
+/*     width: 1000px;
+    height: 560px; */
+    width: 80%;
+    height: 70vh;
+    background-image:url('img/Planetas/outerwildsmapsource.png');
     background-size: cover;
+    background-position: center;
     margin: 0 auto;
     margin-top: 5vh;
     display: flex;
     justify-content: center;
     position: relative;
 }
+
+#modalPlaneta{
+    box-shadow: 0px 0px 15px 0px #00FFFF;
+
+    width: 800px;
+    height: 600px;
+    border-radius: 15px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.582);
+    position: absolute;
+    top: 0;
+    z-index: 1;
+}
+#modalPlaneta h2{
+    text-align: center;
+    background-color: black;
+}
+#modalPlaneta button{
+    width: 30px;
+    height: 30px;
+    background-color: #FF7314;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+}
+#modalPlaneta button:hover{
+    width: 30px;
+    height: 30px;
+    background-color: #cf5606;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+}
+#fotoModalPlaneta img{
+    width:200px;
+}
+#modalPlanetaTexto{
+    color: #FF7314;
+    background-color: black;
+}
 main h2{
-    color: #ffffff;
+    color: #00FFFF;
 }
 
+/* Planetas no mapa */
+
+/* Gêmeos da Ampulheta */
 #ampulheta{
+    background-image: url("img/Planetas/gemeosAmpulheta.png");
+    background-size: contain;
+    background-position: start;
+    background-repeat: no-repeat;
     color: #ffffff;
-    font-size: 14px;
     position: absolute;
-    top: 56%;
-    left: 15%;
+    top: 44%;
+    left: 18%;
+    width: 50px;
+    height: 90px;
+    font-size: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    text-align: center;
 }
 #ampulheta:hover{
-    color: #14FFF1;
-    cursor: pointer;
-    font-size: 16px;
+    width: 60px;
+    height: 100px;
     transition: 1s;
+    font-size: 12px;
+    cursor: pointer;
+    color: #00FFFF;
 }
+/* Gêmeos da Ampulheta */
+
+/* Recanto Lenhoso */
+#recanto{
+    background-image: url("img/Planetas/recanto.png");
+    background-size: contain;
+    background-position: start;
+    background-repeat: no-repeat;
+    color: #ffffff;
+    position: absolute;
+    top: 42%;
+    left: 30%;
+    width: 60px;
+    height: 100px;
+    font-size: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+#recanto:hover{
+    width: 70px;
+    height: 110px;
+    transition: 1s;
+    font-size: 12px;
+    cursor: pointer;
+    color: #00FFFF;
+}
+
+/* Recanto Lenhoso */
+
+/* Vale Incerto */
+#valeIncerto{
+    background-image: url("img/Planetas/incerto.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #ffffff;
+    position: absolute;
+    top: 38%;
+    left: 40%;
+    width: 70px;
+    height: 110px;
+    font-size: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+#valeIncerto:hover{
+    width: 80px;
+    height: 120px;
+    transition: 1s;
+    font-size: 12px;
+    cursor: pointer;
+    color: #00FFFF;
+}
+/* Vale Incerto */
+
+/* Profundezas do Gigante*/
+#profundezas{
+    background-image: url("img/Planetas/profundezas.png");
+    background-size: contain;
+    background-position: start;
+    background-repeat: no-repeat;
+    color: #ffffff;
+    position: absolute;
+    top: 37%;
+    left: 53%;
+    width: 90px;
+    height: 130px;
+    font-size: 10px;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: end;
+    align-items: center;
+}
+#profundezas:hover{
+    width: 100px;
+    height: 150px;
+    transition: 1s;
+    font-size: 12px;
+    cursor: pointer;
+    color: #00FFFF;
+}
+/* Profundezas do Gigante*/
+
+/* Embrolho sombrio*/
+#embrolho{
+    background-image: url("img/Planetas/embrolho.png");
+    background-size: contain;
+    background-position: start;
+    background-repeat: no-repeat;
+    color: #ffffff;
+    position: absolute;
+    top: 40%;
+    left: 69%;
+    width: 50px;
+    height: 100px;
+    font-size: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+#embrolho:hover{
+    width: 70px;
+    height: 120px;
+    transition: 1s;
+    font-size: 12px;
+    cursor: pointer;
+    color: #00FFFF;
+}
+/* Embrolho sombrio*/
+
+/* O xereta */
+#xereta{
+    background-image: url("img/Planetas/xereta.png");
+    background-size: contain;
+    background-position: start;
+    background-repeat: no-repeat;
+    color: #ffffff;
+    position: absolute;
+    top: 10%;
+    left: 80%;
+    width: 50px;
+    height: 60px;
+    font-size: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+#xereta:hover{
+    width: 60px;
+    height: 70px;
+    transition: 1s;
+    font-size: 12px;
+    cursor: pointer;
+    color: #00FFFF;
+}
+/* O xereta */
