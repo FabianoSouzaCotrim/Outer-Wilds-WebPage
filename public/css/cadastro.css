@@ -84,4 +84,5 @@ main{
 #btn-cadastro:hover{
     background-color: #FF7314;
     cursor: pointer;
+    transition: 0.7s;
 }

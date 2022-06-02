@@ -41,7 +41,7 @@ nav{
 }
 nav a:hover{
     color: #14ffef;
-
+    transition: 0.6s;
 }
 .logo{
     width: 10vw;
