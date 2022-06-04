@@ -13,7 +13,7 @@ body{
 main{
     background-color: #101318d8;
     width: 80%;
-    height: 1600px;
+    height: 1200px;
     margin: 0 auto;
     margin-top: 10vh;
 }
@@ -23,11 +23,113 @@ main{
     flex-direction: column;
 }
 
-
-.titulo1{
-    
-}
+/* VOTAÇÃO PERSONAGEM FAVORITO */
 
 .div_voto_personagem{
+    width: 100%;
+    height: 400px;
+    display: flex;
+    justify-content: space-around;
+    background-color: #072929;
+}
+.div_voto_personagem div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.div_voto_personagem div h1{
+    font-size: 40px;
+    color: #FF7314;
+}
+.div_voto_personagem img{
+    border-radius: 5px;
+}
 
+.div_voto_personagem div button{
+    width: 100px;
+    height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    background-color: #00FFFF;
+}
+.div_voto_personagem div button:hover{
+    background-color: #FF7314;
+    transition: 1s;
+    cursor: pointer;
+}
+
+.div_voto_personagem img:hover{
+    width: 220px;
+    height: 220px;
+    transition: 1s;
+}
+
+.titulo1{
+    text-align: center;
+    color: #00FFFF;
+    font-size: 40px;
+    margin-bottom: 50px;
+}
+
+.titulo2{
+    text-align: center;
+    color: #FF7314;
+    font-size: 30px;
+    margin-bottom: 50px;
+}
+
+
+
+
+
+/* VOTAÇÃO PLANETA FAVORITO */
+.titulo3{
+    text-align: center;
+    color: #FF7314;
+    font-size: 30px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.div_voto_planeta{
+    width: 100%;
+    height: 400px;
+    display: flex;
+    justify-content: space-around;
+    background-color: #0a1d1d;
+}
+.div_voto_planeta div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.div_voto_planeta div h1{
+    font-size: 20px;
+    color: #FF7314;
+}
+.div_voto_planeta img{
+    border-radius: 5px;
+}
+
+.div_voto_planeta div button{
+    width: 100px;
+    height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    background-color: #00FFFF;
+}
+.div_voto_planeta div button:hover{
+    background-color: #FF7314;
+    transition: 1s;
+    cursor: pointer;
+}
+
+.div_voto_planeta img:hover{
+    width: 220px;
+    height: 220px;
+    transition: 1s;
 }

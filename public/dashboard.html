@@ -1,44 +1,265 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Outer Wilds</title>
-    <script src="./js/funcoes.js"></script>
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/navbar.css">
-    <link rel="icon" type="imagem/webp" href="css/img/OuterWildslogo.webp" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Outer Wilds</title>
+  <script src="./js/funcoes.js"></script>
+  <link rel="stylesheet" href="css/dashboards.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="icon" type="imagem/webp" href="css/img/OuterWildslogo.webp" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 
 </head>
-<body>
-    <header>
-        <nav>
-            <a  href="/"><img class="logo" src="css/img/outerWildsLogo.png"></a>
-            <li class="navbar">
-                <ul><a href="index.html">Inicio</a></ul>
-                <ul><a href="personagens.html">Personagens</a></ul>
-                <ul><a href="mapaEspacial.html">Mapa Espacial</a></ul>
-                <ul><a href="comunidade.html">Comunidade</a></ul>
-                <ul><a class="foco" href="">Dashboard</a></ul>
-            </li>
-            <li class="navbar2">
-                <a class="login-laranja" href="login.html"><ul>Login</ul></a>
-                <ul><a href="cadastro.html">Cadastrar</a></ul>
-            </li>
-            <li class="navbar3">
-                <div class="fotoUsuario"></div>
-                <h3 id="nomeUsuario">Fabiano</h3><span onclick="limparSessao()">Sair</span>
-            </li>
-        </nav>
-    </header>
-    <main>
-        <section class="section_historia">
 
-        </section>
-    </main>
-    <footer><h3 style="color: #FF7314;">todos direitos reservados Fabiano Souza &copy; 2022</h3></footer>
+<body>
+  <header>
+    <nav>
+      <a href="/"><img class="logo" src="css/img/outerWildsLogo.png"></a>
+      <li class="navbar">
+        <ul><a href="index.html">Inicio</a></ul>
+        <ul><a href="personagens.html">Personagens</a></ul>
+        <ul><a href="mapaEspacial.html">Mapa Espacial</a></ul>
+        <ul><a href="comunidade.html">Comunidade</a></ul>
+        <ul><a class="foco" href="">Dashboard</a></ul>
+      </li>
+      <li class="navbar2">
+        <a class="login-laranja" href="login.html">
+          <ul>Login</ul>
+        </a>
+        <ul><a href="cadastro.html">Cadastrar</a></ul>
+      </li>
+      <li class="navbar3">
+        <div class="fotoUsuario"></div>
+        <h3 id="nomeUsuario"></h3><span onclick="limparSessao()">Sair</span>
+      </li>
+    </nav>
+  </header>
+  <main>
+    <section class="section_grafico1">
+      <div style="width: 1000px;">
+        <canvas id="grafico_personagem"></canvas>
+      </div>
+      <div style="width: 1000px;">
+        <canvas id="grafico_planeta"></canvas>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <h3 style="color: #FF7314;">todos direitos reservados Fabiano Souza &copy; 2022</h3>
+  </footer>
 </body>
+
 </html>
 
 <script src="js/validarSessao.js"></script>
+
+<script>
+  fetch("/usuarios/votoQtdPersonagem", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json"
+    }
+  }).then(function (resposta) {
+    console.log("ESTOU NO THEN DO entrar()!")
+
+    if (resposta.ok) {
+      console.log(resposta);
+
+      resposta.json().then(json => {
+        console.log(json);
+        console.log(JSON.stringify(json));
+        
+
+        const labels = json.map(p=>p.nome);
+
+        const data = {
+          labels: labels,
+          datasets: [{
+            label: 'Ranking Personagens Favoritos:',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: json.map(p=>p.votos),
+          }]
+        };
+
+        const config = {
+          type: 'bar',
+          data: data,
+          options: {}
+        };
+
+        const myChart = new Chart(
+          document.getElementById('grafico_personagem'),
+          config
+        );
+
+      });
+    
+    } else {
+
+      console.log("Houve um erro ao tentar realizar o login!");
+
+      resposta.text().then(texto => {
+        console.error(texto);
+        /* finalizarAguardar(texto); */
+      });
+    }
+
+  }).catch(function (erro) {
+    console.log(erro);
+  })
+</script>
+
+<script>
+  fetch("/usuarios/votoQtdPersonagem", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json"
+    }
+  }).then(function (resposta) {
+    console.log("ESTOU NO THEN DO entrar()!")
+
+    if (resposta.ok) {
+      console.log(resposta);
+
+      resposta.json().then(json => {
+        console.log(json);
+        console.log(JSON.stringify(json));
+        
+
+        const labels = json.map(p=>p.nome);
+
+        const data = {
+          labels: labels,
+          datasets: [{
+            label: 'My First dataset',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: json.map(p=>p.votos),
+          }]
+        };
+
+        const config = {
+          type: 'bar',
+          data: data,
+          options: {}
+        };
+
+        const myChart = new Chart(
+          document.getElementById('grafico_personagem'),
+          config
+        );
+
+      });
+    
+    } else {
+
+      console.log("Houve um erro ao tentar realizar o login!");
+
+      resposta.text().then(texto => {
+        console.error(texto);
+        /* finalizarAguardar(texto); */
+      });
+    }
+
+  }).catch(function (erro) {
+    console.log(erro);
+  })
+</script>
+
+<script>
+  fetch("/usuarios/votoQtdPlaneta", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json"
+    }
+  }).then(function (resposta) {
+    console.log("ESTOU NO THEN DO entrar()!")
+
+    if (resposta.ok) {
+      console.log(resposta);
+
+      resposta.json().then(json => {
+        console.log(json);
+        console.log(JSON.stringify(json));
+        
+
+        const labels = json.map(p=>p.nome);
+
+        const data = {
+          labels: labels,
+          datasets: [{
+            label: 'My First dataset',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: json.map(p=>p.votos),
+          }]
+        };
+
+        const config = {
+          type: 'bar',
+          data: data,
+            options: {
+                responsive: true,
+                animation: { duration: 500 },
+                hoverMode: 'index',
+                stacked: false,
+                title: {
+                    display: false,
+                    text: 'Dados capturados'
+                },
+                scales: {
+                    yAxes: [{
+                        type: 'linear',
+                        display: true,
+                        position: 'left',
+                        id: 'y-temperatura',
+                        ticks: {
+                            beginAtZero: true,
+                            max: 100,
+                            min: 0
+                        }
+                    }, {
+                        type: 'linear',
+                        display: false,
+                        position: 'right',
+                        id: 'y-umidade',
+                        ticks: {
+                            beginAtZero: true,
+                            max: 100,
+                            min: 0
+                        },
+
+                        gridLines: {
+                            drawOnChartArea: false,
+                        },
+                    }],
+                }
+            }
+        };
+
+        const myChart = new Chart(
+          document.getElementById('grafico_planeta'),
+          config
+        );
+
+      });
+    
+    } else {
+
+      console.log("Houve um erro ao tentar realizar o login!");
+
+      resposta.text().then(texto => {
+        console.error(texto);
+        /* finalizarAguardar(texto); */
+      });
+    }
+
+  }).catch(function (erro) {
+    console.log(erro);
+  })
+</script>

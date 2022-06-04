@@ -10,6 +10,6 @@
         let navbar3 = document.getElementsByClassName('navbar3')
         navbar3[0].style.display = "flex"
         var nomeMaiusculo = sessionStorage.NOME_USUARIO
-        nomeMaiusculo = nomeMaiusculo[0].upperCase()
-        nomeUsuario.innerHTML = nomeMaiusculo
+        nomeMaiusculo = nomeMaiusculo[0].toUpperCase()+ nomeMaiusculo.substring(1);
+        nomeUsuario.innerHTML = `${nomeMaiusculo}`
     }

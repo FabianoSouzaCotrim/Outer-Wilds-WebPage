@@ -96,9 +96,101 @@ function cadastrar(req, res) {
     }
 }
 
+/* VOTAR PERSONAGEM */
+
+function votarPersonagem(req, res) {
+
+    var voto = req.body.votoServer;
+    var id = req.body.idServer
+
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.votarPersonagem(voto, id)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+
+    /* VOTAR NO PLANETA FAVORITO */
+    function votarPlaneta(req, res) {
+
+        var voto = req.body.votoServer;
+        var id = req.body.idServer
+    
+            // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+            usuarioModel.votarPlaneta(voto, id)
+                .then(
+                    function (resultado) {
+                        res.json(resultado);
+                    }
+                ).catch(
+                    function (erro) {
+                        console.log(erro);
+                        console.log(
+                            "\nHouve um erro ao realizar o cadastro! Erro: ",
+                            erro.sqlMessage
+                        );
+                        res.status(500).json(erro.sqlMessage);
+                    }
+                );
+        }
+/* PEGAR VOTOS PERSONAGEM */
+        function votoQtdPersonagem(req, res) {
+        
+                // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+                usuarioModel.votoQtdPersonagem()
+                    .then(
+                        function (resultado) {
+                            res.json(resultado);
+                        }
+                    ).catch(
+                        function (erro) {
+                            console.log(erro);
+                            console.log(
+                                "\nHouve um erro ao realizar o cadastro! Erro: ",
+                                erro.sqlMessage
+                            );
+                            res.status(500).json(erro.sqlMessage);
+                        }
+                    );
+            }
+
+            function votoQtdPlaneta(req, res) {
+        
+                // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+                usuarioModel.votoQtdPlaneta()
+                    .then(
+                        function (resultado) {
+                            res.json(resultado);
+                        }
+                    ).catch(
+                        function (erro) {
+                            console.log(erro);
+                            console.log(
+                                "\nHouve um erro ao realizar o cadastro! Erro: ",
+                                erro.sqlMessage
+                            );
+                            res.status(500).json(erro.sqlMessage);
+                        }
+                    );
+            }
 module.exports = {
     entrar,
     cadastrar,
+    votarPersonagem,
+    votarPlaneta,
+    votoQtdPersonagem,
+    votoQtdPlaneta,
     listar,
     testar
 }

@@ -28,44 +28,81 @@
             </li>
             <li class="navbar3">
                 <div class="fotoUsuario"></div>
-                <h3 id="nomeUsuario">Fabiano</h3><span onclick="limparSessao()">Sair</span>
+                <h3 id="nomeUsuario"></h3><span onclick="limparSessao()">Sair</span>
             </li>
         </nav>
     </header>
     <main>
+        <h1 class="titulo1">Comunidade Outer Wilds Ventures</h1>
         <section class="section_votocao">
-            <h1 class="titulo1">Vote no seu Personagem Favorito:</h1>
+            <h1 class="titulo2">Vote no seu Personagem Favorito:</h1>
+            <!-- VOTAÇÃO PERSONAGEM FAVORITO -->
             <div class="div_voto_personagem">
             <div>
-                <img src='css/img/personagem/Chert.webp'>
+                <img src='css/img/personagem/Chert.webp' width="200px" height="200px">
                 <h1>Chert</h1>
-                <button>Votar</button>
+                <button onclick="votarPersonagem('chert')">Votar</button>
             </div>
 
             <div>
-                <img src='https://static.wikia.nocookie.net/outerwilds_gamepedia/images/b/ba/Esker.png/revision/latest?cb=20211017171749'>
+                <img src='css/img/personagem/Esker.webp' width="200px" height="200px">
                 <h1>Esker</h1>
-                <button>Votar</button>
+                <button  onclick="votarPersonagem('esker')">Votar</button>
             </div>
 
             <div>
-                <img src='https://static.wikia.nocookie.net/outerwilds_gamepedia/images/f/fe/Riebeck.jpg/revision/latest?cb=20190716001215'>
+                <img src='css/img/personagem/Riebeck.webp' width="200px" height="200px">
                 <h1>Riebeck</h1>
-                <button>Votar</button>
+                <button onclick="votarPersonagem('riebeck')">Votar</button>
             </div>
 
             <div>
-                <img src='https://static.wikia.nocookie.net/outerwilds_gamepedia/images/c/cc/Gabbro.jpg/revision/latest/scale-to-width-down/1000?cb=20211017172115'>
+                <img src='css/img/personagem/Gabbro.webp' width="200px" height="200px">
                 <h1>Gabbro</h1>
-                <button>Votar</button>
+                <button onclick="votarPersonagem('gabbro')">Votar</button>
             </div>
 
             <div>
-                <img src='https://static.wikia.nocookie.net/outerwilds_gamepedia/images/e/ed/Feldspar.jpg/revision/latest?cb=20190716000804'>
+                <img src='css/img/personagem/Feldspar.webp' width="200px" height="200px">
                 <h1>Feldspar</h1>
-                <button>Votar</button>
+                <button onclick="votarPersonagem('feldspar')">Votar</button>
             </div>
             </div>
+
+            <!-- VOTAÇÃO PLANETA FAVORITO -->
+            <h1 class="titulo3">Vote no seu Planeta Favorito:</h1>
+            <div class="div_voto_planeta">
+                
+                <div>
+                    <img src="css/img/Planetas/antigas/gemeos.png" width="200px" height="200px">
+                    <h1>Gêmeos da Ampulheta</h1>
+                    <button onclick="votarPlaneta('gemeos')">Votar</button>
+                </div>
+    
+                <div>
+                    <img src="css/img/Planetas/antigas/timberhearth.png" width="200px" height="200px">
+                    <h1>Recanto Lenhoso</h1>
+                    <button onclick="votarPlaneta('recanto')">Votar</button>
+                </div>
+    
+                <div>
+                    <img src="css/img/Planetas/antigas/brittleHollow.jpg" width="200px" height="200px">
+                    <h1>Vale Incerto</h1>
+                    <button onclick="votarPlaneta('vale')">Votar</button>
+                </div>
+    
+                <div>
+                    <img src="css/img/Planetas/antigas/profundezasGigante.jpg" width="200px" height="200px">
+                    <h1>Profundezas do Gigante</h1>
+                    <button onclick="votarPlaneta('gigante')">Votar</button>
+                </div>
+    
+                <div>
+                    <img src="css/img/Planetas/antigas/Dark_Bramble.jpg" width="200px" height="200px">
+                    <h1>Embrolho Sombrio</h1>
+                    <button onclick="votarPlaneta('embrolho')">Votar</button>
+                </div>
+                </div>
         </section>
     </main>
     <footer><h3 style="color: #FF7314;">todos direitos reservados Fabiano Souza &copy; 2022</h3></footer>
@@ -73,3 +110,95 @@
 </html>
 
 <script src="js/validarSessao.js"></script>
+
+<script>
+function votarPersonagem(personagem) {
+    alert("votou no seu personagem favorito")
+        let votoVar
+        let idVar
+        switch (personagem) {
+            case 'chert':
+            votoVar = 1;
+             idVar = sessionStorage.ID_USUARIO
+                break
+
+                case 'esker':
+            votoVar = 2;
+             idVar = sessionStorage.ID_USUARIO
+                break
+
+                case 'riebeck':
+            votoVar = 3;
+             idVar = sessionStorage.ID_USUARIO
+                break
+
+                case 'gabbro':
+            votoVar = 4;
+             idVar = sessionStorage.ID_USUARIO
+                break
+                
+                case 'feldspar':
+            votoVar = 5;
+            idVar = sessionStorage.ID_USUARIO
+                break
+        }
+
+        console.log(votoVar)
+
+    fetch("/usuarios/votarPersonagem", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            votoServer: votoVar,
+            idServer: idVar
+        })
+    })
+}
+
+function votarPlaneta(planeta) {
+    alert("votou no seu planeta favorito")
+        let votoVar
+        let idVar
+        switch (planeta) {
+            case 'gemeos':
+            votoVar = 1;
+             idVar = sessionStorage.ID_USUARIO
+                break
+
+                case 'recanto':
+            votoVar = 2;
+             idVar = sessionStorage.ID_USUARIO
+                break
+
+                case 'vale':
+            votoVar = 3;
+             idVar = sessionStorage.ID_USUARIO
+                break
+
+                case 'gigante':
+            votoVar = 4;
+             idVar = sessionStorage.ID_USUARIO
+                break
+                
+                case 'embrolho':
+            votoVar = 5;
+            idVar = sessionStorage.ID_USUARIO
+                break
+        }
+
+        console.log(votoVar)
+
+    fetch("/usuarios/votarPlaneta", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            votoServer: votoVar,
+            idServer: idVar
+        })
+    })
+}
+</script>
