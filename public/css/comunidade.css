@@ -20,6 +20,7 @@ main{
 .section_votocao{
     display: flex;
     flex-direction: column;
+    border-bottom: 1px solid #FF7314;
 }
 
 /* VOTAÇÃO PERSONAGEM FAVORITO */
@@ -75,7 +76,7 @@ main{
     text-align: center;
     color: #FF7314;
     font-size: 30px;
-    margin-bottom: 50px;
+
 }
 
 
@@ -88,7 +89,6 @@ main{
     color: #FF7314;
     font-size: 30px;
     margin-top: 50px;
-    margin-bottom: 50px;
 }
 
 .div_voto_planeta{
@@ -96,6 +96,7 @@ main{
     height: 400px;
     display: flex;
     justify-content: space-around;
+    text-align: center;
 }
 .div_voto_planeta div{
     display: flex;
@@ -109,6 +110,8 @@ main{
 }
 .div_voto_planeta img{
     border-radius: 5px;
+    width: 160px;
+    height: 160px;
 }
 
 .div_voto_planeta div button{

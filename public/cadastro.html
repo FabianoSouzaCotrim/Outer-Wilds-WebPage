@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,22 +10,25 @@
     <script src="./js/funcoes.js"></script>
 
     <link rel="stylesheet" href="css/cadastro.css">
-    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/navbarNormal.css">
     <link rel="icon" type="imagem/webp" href="css/img/OuterWildslogo.webp" />
 </head>
+
 <body>
     <header>
-        <a  href="/"><img class="logo" src="css/img/outerWildsLogo.png"></a>
+        <a href="/"><img class="logo" src="css/img/outerWildsLogo.png"></a>
         <nav>
             <li class="navbar">
                 <ul><a href="index.html">Inicio</a></ul>
                 <ul><a href="personagens.html">Personagens</a></ul>
                 <ul><a href="MapaEspacial.html">Mapa Espacial</a></ul>
                 <ul><a href="comunidade.html">Comunidade</a></ul>
-                <ul><a href="">Dashboard</a></ul>
+                <ul><a href="dashboard.html">Dashboard</a></ul>
             </li>
             <li class="navbar2">
-                <a class="login-laranja" href="login.html"><ul>Login</ul></a>
+                <a class="login-laranja" href="login.html">
+                    <ul>Login</ul>
+                </a>
                 <ul><a class="foco" href="#">Cadastrar</a></ul>
             </li>
         </nav>
@@ -35,90 +39,166 @@
             <img src="./css/img/diagram2.jpg" alt="">
         </div>
         <div class="container-cadastro">
-                <img class="logo2" src="css/img/Outer Wilds Ventures logo.png">
-                <h1>Entre para a tripulação:</h1>
-                <div class="modal-cadastro-grid">
+            <img class="logo2" src="css/img/Outer Wilds Ventures logo.png">
+            <h1>Entre para a tripulação:</h1>
+            <div class="modal-cadastro-grid">
                 <div class="modal-cadastro-grid1">
-                <h3>Nome:</h3>
-                <input type="text" id="input_nome">
-                <h3>Idade:</h3>
-                <input type="text" id="input_idade">
-                <h3>Gênero:</h3>
-                <select id="input_genero">
-                    <option value="masculino">Masculino</option>
-                    <option value="feminino">Feminino</option>
-                    <option value="outros">Outros</option>
-                </select>
+                    <h3>Nome:</h3>
+                    <input type="text" id="input_nome">
+                    <p id="p_nome"></p>
+                    <h3>Idade:</h3>
+                    <input type="text" id="input_idade">
+                    <p id="p_idade"></p>
+                    <h3>Gênero:</h3>
+                    <select id="input_genero">
+                        <option value="masculino">Masculino</option>
+                        <option value="feminino">Feminino</option>
+                        <option value="outros">Outros</option>
+                    </select>
                 </div>
                 <div class="modal-cadastro-grid2">
-                <h3>Email:</h3>
-                <input type="text" id="input_email">
-                <h3>Senha:</h3>
-                <input type="password" id="input_senha">
-                <h3>Repetir Senha:</h3>
-                <input type="password" id="input_repetir_senha">
+                    <h3>Email:</h3>
+                    <input type="text" id="input_email">
+                    <p id="p_email"></p>
+                    <h3>Senha:</h3>
+                    <input type="password" id="input_senha">
+                    <p id="p_senha"></p>
+                    <h3>Repetir Senha:</h3>
+                    <input type="password" id="input_repetir_senha">
+                    <p id="p_repetir_senha"></p>
                 </div>
-                </div>
-                <button id="btn-cadastro"  onclick="cadastrar()">Cadastrar</button>
+            </div>
+            <button id="btn-cadastro" onclick="cadastrar()">Cadastrar</button>
         </div>
     </main>
 </body>
+
 </html>
 <script>
     function cadastrar() {
-    /*aguardar(); */
+        /*aguardar(); */
 
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
-        var nomeVar = input_nome.value;
+        var nomeVar = input_nome.value.toLowerCase()
         var idadeVar = input_idade.value
         var generoVar = input_genero.value
-        var emailVar = input_email.value;
-        var senhaVar = input_senha.value;
-        var confirmacaoSenhaVar = input_repetir_senha.value;
+        var emailVar = input_email.value.toLowerCase()
+        var senhaVar = input_senha.value.trim().toLowerCase()
+        var confirmacaoSenhaVar = input_repetir_senha.value.toLowerCase();
 
-        if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
-            alert("INSIRA DADOS NO CADASTRO")
+        var nomeInvalido = p_nome.innerHTML = `<br>Informe seu nome (mais de letras)`
+        var idadeInvalido = p_idade.innerHTML = `<br>Informe sua idade`
+        var emailInvalido = p_email.innerHTML = `<br>Email Inválido`
+        var senhaInvalido = p_senha.innerHTML =
+            `<br>Informe uma senha com 8 ou mais caracteres e com caracteres especiais`
+        var repetirSenhaInvalido = p_repetir_senha.innerHTML = `<br>senha diferente da informada`
+
+        var validado = 0
+
+        if (nomeVar == "" || emailVar == "" || idadeVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+            nomeInvalido
+            idadeInvalido
+            emailInvalido
+            senhaInvalido
+
+            validado = 0
+
+        } else {
+            p_nome.innerHTML = ``
+            p_idade.innerHTML = ``
+            p_email.innerHTML = ``
+            p_senha.innerHTML = ``
+            p_repetir_senha.innerHTML = ``
+            validado = 1
         }
-        else {
-        // Enviando o valor da nova input
-        fetch("/usuarios/cadastrar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/usuario.js
-                nomeServer: nomeVar,
-                idadeServer: idadeVar,
-                generoServer: generoVar,
-                emailServer: emailVar,
-                senhaServer: senhaVar
-            })
-        }).then(function (resposta) {
 
-            console.log("resposta: ", resposta);
+        if (nomeVar == "" || nomeVar.length <= 3) {
+            nomeInvalido
+            validado = 0
+        } else {
+            p_nome.innerHTML = ``
+            validado = 1
+        }
 
-            if (resposta.ok) {
+        if (idadeVar == "") {
+            idadeInvalido
+            validado = 0
+        } else {
+            p_idade.innerHTML = ``
+            validado = 1
+        }
 
-                alert("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
+        if (emailVar == "" || emailVar.endsWith("@gmail.com") || emailVar.endsWith("@outlook.com") || emailVar.endsWith(
+                "@hotmail.com") || emailVar.endsWith("@sptech.school")) {
+            p_email.innerHTML = ``
+            validado = 1
+        } else {
+            emailInvalido
+            validado = 0
+        }
 
-                setTimeout(() => {
-                    window.location = "login.html";
-                }, 2000)
-                
-/*                 limparFormulario();
-                finalizarAguardar(); */
-            } else {
-                throw ("Houve um erro ao tentar realizar o cadastro!");
-            }
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-            /* finalizarAguardar(); */
-        });
 
-        return false;
+        var regex =
+            /^(?=(?:.*?[A-Z]){0})(?=(?:.*?[0-9]){0})(?=(?:.*?[!@#$%*()_+^&}{:;?.]){1})(?!.*\s)[0-9a-zA-Z!@#$%;*(){}._+^&]*$/;
+
+        if (senhaVar != "" && senhaVar.length >= 8 && regex.exec(senhaVar)) {
+            p_senha.innerHTML = ""
+            validado = 1
+        } else {
+            senhaInvalido
+            validado = 0
+        }
+
+        if (confirmacaoSenhaVar == "" || confirmacaoSenhaVar != senhaVar) {
+            repetirSenhaInvalido
+            validado = 0
+        } else {
+            p_repetir_senha.innerHTML = ``
+            validado = 1
+        }
+
+
+        if (validado == 1) {
+            // Enviando o valor da nova input
+            fetch("/usuarios/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    // crie um atributo que recebe o valor recuperado aqui
+                    // Agora vá para o arquivo routes/usuario.js
+                    nomeServer: nomeVar,
+                    idadeServer: idadeVar,
+                    generoServer: generoVar,
+                    emailServer: emailVar,
+                    senhaServer: senhaVar
+                })
+            }).then(function (resposta) {
+
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+
+                    alert("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
+
+                    setTimeout(() => {
+                        window.location = "login.html";
+                    }, 2000)
+
+                    /*                 limparFormulario();
+                                    finalizarAguardar(); */
+                } else {
+                    throw ("Houve um erro ao tentar realizar o cadastro!");
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                /* finalizarAguardar(); */
+            });
+
+            return false;
+
+        }
     }
-}
 </script>
