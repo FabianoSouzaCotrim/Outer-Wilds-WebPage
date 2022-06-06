@@ -17,3 +17,9 @@ main{
     margin: 0 auto;
     margin-top: 10vh;
 }
+.section_grafico1{
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    color: #00FFFF;
+}

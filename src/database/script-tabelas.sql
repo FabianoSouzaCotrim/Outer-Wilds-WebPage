@@ -25,6 +25,14 @@ create table usuario(
     foreign key (fk_personagemFav) references personagem(idPersonagem)
 );
 
+create table forum(
+	idComentario INT PRIMARY KEY AUTO_INCREMENT,
+	titulo VARCHAR(100),
+	descricao VARCHAR(250),
+	fk_usuario INT,
+	FOREIGN KEY (fk_usuario) REFERENCES usuario(idUsuario)
+);
+
 insert into personagem
 values(null, "chert"),
 (null, "esker"),
@@ -38,3 +46,15 @@ values(null, "gêmeos da ampulheta"),
 (null, "vale incerto"),
 (null, "profundezas do gigante"),
 (null, "embrolho sombrio");
+
+select * from usuario;
+
+#update usuario set fk_personagemFav = null where idUsuario = 1;
+
+#insert into usuario(nome, idade, genero, email, senha)
+#values("fabiano", 21 , "masculino", "fabiano@gmail.com","coxinha123");
+
+#UPDATE usuario
+#SET fk_personagemFav = "5"
+#WHERE idUsuario = 1;
+

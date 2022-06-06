@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Outer Wilds</title>
     <script src="./js/funcoes.js"></script>
+    <link rel="stylesheet" href="css/forum.css">
     <link rel="stylesheet" href="css/comunidade.css">
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="icon" type="imagem/webp" href="css/img/OuterWildslogo.webp" />
 
 </head>
-<body>
+<body onload="atualizarFeed()">
     <header>
         <nav>
             <a  href="/"><img class="logo" src="css/img/outerWildsLogo.png"></a>
@@ -41,31 +42,31 @@
             <div>
                 <img src='css/img/personagem/Chert.webp' width="200px" height="200px">
                 <h1>Chert</h1>
-                <button onclick="votarPersonagem('chert')">Votar</button>
+                <button id="chert" onclick="votarPersonagem('chert')">Votar</button>
             </div>
 
             <div>
                 <img src='css/img/personagem/Esker.webp' width="200px" height="200px">
                 <h1>Esker</h1>
-                <button  onclick="votarPersonagem('esker')">Votar</button>
+                <button id="esker"  onclick="votarPersonagem('esker')">Votar</button>
             </div>
 
             <div>
                 <img src='css/img/personagem/Riebeck.webp' width="200px" height="200px">
                 <h1>Riebeck</h1>
-                <button onclick="votarPersonagem('riebeck')">Votar</button>
+                <button id="riebeck" onclick="votarPersonagem('riebeck')">Votar</button>
             </div>
 
             <div>
                 <img src='css/img/personagem/Gabbro.webp' width="200px" height="200px">
                 <h1>Gabbro</h1>
-                <button onclick="votarPersonagem('gabbro')">Votar</button>
+                <button id="gabbro" onclick="votarPersonagem('gabbro')">Votar</button>
             </div>
 
             <div>
                 <img src='css/img/personagem/Feldspar.webp' width="200px" height="200px">
                 <h1>Feldspar</h1>
-                <button onclick="votarPersonagem('feldspar')">Votar</button>
+                <button id="feldspar" onclick="votarPersonagem('feldspar')">Votar</button>
             </div>
             </div>
 
@@ -76,34 +77,70 @@
                 <div>
                     <img src="css/img/Planetas/antigas/gemeos.png" width="200px" height="200px">
                     <h1>Gêmeos da Ampulheta</h1>
-                    <button onclick="votarPlaneta('gemeos')">Votar</button>
+                    <button id="gemeos" onclick="votarPlaneta('gemeos')">Votar</button>
                 </div>
     
                 <div>
                     <img src="css/img/Planetas/antigas/timberhearth.png" width="200px" height="200px">
                     <h1>Recanto Lenhoso</h1>
-                    <button onclick="votarPlaneta('recanto')">Votar</button>
+                    <button  id="recanto" onclick="votarPlaneta('recanto')">Votar</button>
                 </div>
     
                 <div>
                     <img src="css/img/Planetas/antigas/brittleHollow.jpg" width="200px" height="200px">
                     <h1>Vale Incerto</h1>
-                    <button onclick="votarPlaneta('vale')">Votar</button>
+                    <button id="vale" onclick="votarPlaneta('vale')">Votar</button>
                 </div>
     
                 <div>
                     <img src="css/img/Planetas/antigas/profundezasGigante.jpg" width="200px" height="200px">
                     <h1>Profundezas do Gigante</h1>
-                    <button onclick="votarPlaneta('gigante')">Votar</button>
+                    <button id="gigante" onclick="votarPlaneta('gigante')">Votar</button>
                 </div>
     
                 <div>
                     <img src="css/img/Planetas/antigas/Dark_Bramble.jpg" width="200px" height="200px">
                     <h1>Embrolho Sombrio</h1>
-                    <button onclick="votarPlaneta('embrolho')">Votar</button>
+                    <button  id="embrolho" onclick="votarPlaneta('embrolho')">Votar</button>
                 </div>
                 </div>
         </section>
+
+
+        <section class="section_forum">
+            <h1 style="text-align:center;">Fale sobre sua experiência Outer Wilds:</h1>
+            <div class="janela">
+            <div class="avisos">
+                <div class="container">
+                    <div class="div-form">
+                        <form id="form_postagem" method="post" onsubmit="return publicar()">
+                            <label>
+                                Título:
+                                <br>
+                                <input name="titulo" id="titulo" maxlength="100" type="text">
+                            </label>
+                            <br>
+                            <label>
+                                Descrição (máximo de 250 caracteres):
+                                <br>
+                                <textarea name="descricao" id="textarea_descricao" maxlength="250" rows="5"></textarea>
+                            </label>
+                            <br>
+                            <button>Enviar</button>
+                        </form>
+                    </div>
+                    <h1 style="text-align:center;">Postagens da comunidade:</h1>
+                    <div class="div-results">
+                        <div id="feed_container" class="feed-container">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </section>
+
+
+
     </main>
     <footer><h3 style="color: #FF7314;">todos direitos reservados Fabiano Souza &copy; 2022</h3></footer>
 </body>
@@ -111,94 +148,235 @@
 
 <script src="js/validarSessao.js"></script>
 
+<!-- VOTAÇÃO -->
 <script>
-function votarPersonagem(personagem) {
-    alert("votou no seu personagem favorito")
-        let votoVar
-        let idVar
-        switch (personagem) {
-            case 'chert':
-            votoVar = 1;
-             idVar = sessionStorage.ID_USUARIO
-                break
 
-                case 'esker':
-            votoVar = 2;
-             idVar = sessionStorage.ID_USUARIO
-                break
+    function votarPersonagem(personagem) {
+            let votoVar
+            let idVar
+            switch (personagem) {
+                case 'chert':
+                votoVar = 1;
+                 idVar = sessionStorage.ID_USUARIO
+                    break
+    
+                    case 'esker':
+                votoVar = 2;
+                 idVar = sessionStorage.ID_USUARIO
+                    break
+    
+                    case 'riebeck':
+                votoVar = 3;
+                 idVar = sessionStorage.ID_USUARIO
+                    break
+    
+                    case 'gabbro':
+                votoVar = 4;
+                 idVar = sessionStorage.ID_USUARIO
+                    break
+                    
+                    case 'feldspar':
+                votoVar = 5;
+                idVar = sessionStorage.ID_USUARIO
+                    break
+            }
+            alert("votou no "+personagem+ " como seu personagem favorito")
+            console.log(votoVar)
+    
+        fetch("/usuarios/votarPersonagem", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                votoServer: votoVar,
+                idServer: idVar
+            })
+        })
+    }
+    
+    function votarPlaneta(planeta) {
+        alert("votou no seu planeta favorito")
+            let votoVar
+            let idVar
+            switch (planeta) {
+                case 'gemeos':
+                votoVar = 1;
+                 idVar = sessionStorage.ID_USUARIO
+                    break
+    
+                    case 'recanto':
+                votoVar = 2;
+                 idVar = sessionStorage.ID_USUARIO
+                    break
+    
+                    case 'vale':
+                votoVar = 3;
+                 idVar = sessionStorage.ID_USUARIO
+                    break
+    
+                    case 'gigante':
+                votoVar = 4;
+                 idVar = sessionStorage.ID_USUARIO
+                    break
+                    
+                    case 'embrolho':
+                votoVar = 5;
+                idVar = sessionStorage.ID_USUARIO
+                    break
+            }
+    
+            console.log(votoVar)
+    
+        fetch("/usuarios/votarPlaneta", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                votoServer: votoVar,
+                idServer: idVar
+            })
+        })
+    }
+    </script>
 
-                case 'riebeck':
-            votoVar = 3;
-             idVar = sessionStorage.ID_USUARIO
-                break
+<script>
 
-                case 'gabbro':
-            votoVar = 4;
-             idVar = sessionStorage.ID_USUARIO
-                break
-                
-                case 'feldspar':
-            votoVar = 5;
-            idVar = sessionStorage.ID_USUARIO
-                break
+    function limparFormulario() {
+        document.getElementById("form_postagem").reset();
+    }
+
+    function publicar() {
+        var idUsuario = sessionStorage.ID_USUARIO;
+
+        var corpo = {
+            titulo: form_postagem.titulo.value,
+            descricao: form_postagem.descricao.value
         }
 
-        console.log(votoVar)
+        fetch(`/avisos/publicar/${idUsuario}`, {
+            method: "post",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(corpo)
+        }).then(function (resposta) {
 
-    fetch("/usuarios/votarPersonagem", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            votoServer: votoVar,
-            idServer: idVar
-        })
-    })
-}
+            console.log("resposta: ", resposta);
 
-function votarPlaneta(planeta) {
-    alert("votou no seu planeta favorito")
-        let votoVar
-        let idVar
-        switch (planeta) {
-            case 'gemeos':
-            votoVar = 1;
-             idVar = sessionStorage.ID_USUARIO
-                break
+            if (resposta.ok) {
+                window.alert("Post realizado com sucesso pelo usuario de ID: " + idUsuario + "!");
+                window.location = "comunidade.html";
+                limparFormulario();
+                finalizarAguardar();
+            } else if (resposta.status == 404) {
+                window.alert("Deu 404!");
+            } else {
+                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
 
-                case 'recanto':
-            votoVar = 2;
-             idVar = sessionStorage.ID_USUARIO
-                break
+        return false;
 
-                case 'vale':
-            votoVar = 3;
-             idVar = sessionStorage.ID_USUARIO
-                break
+    }
 
-                case 'gigante':
-            votoVar = 4;
-             idVar = sessionStorage.ID_USUARIO
-                break
-                
-                case 'embrolho':
-            votoVar = 5;
-            idVar = sessionStorage.ID_USUARIO
-                break
-        }
 
-        console.log(votoVar)
+    function deletar(idComentario) {
+        console.log("Criar função de apagar post escolhido - ID" + idComentario);
+        fetch(`/avisos/deletar/${idComentario}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(function (resposta) {
 
-    fetch("/usuarios/votarPlaneta", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            votoServer: votoVar,
-            idServer: idVar
-        })
-    })
-}
+            if (resposta.ok) {
+                window.alert("Post deletado com sucesso pelo usuario de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
+                window.location = "comunidade.html"
+            } else if (resposta.status == 404) {
+                window.alert("Deu 404!");
+            } else {
+                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+    }
+
+    function atualizarFeed() {
+        //aguardar();
+        fetch("/avisos/listar").then(function (resposta) {
+            if (resposta.ok) {
+                if (resposta.status == 204) {
+                    var feed = document.getElementById("feed_container");
+                    var mensagem = document.createElement("span");
+                    mensagem.innerHTML = "Nenhum resultado encontrado."
+                    feed.appendChild(mensagem);
+                    throw "Nenhum resultado encontrado!!";
+                }
+
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                    var feed = document.getElementById("feed_container");
+                    feed.innerHTML = "";
+                    for (let i = 0; i < resposta.length; i++) {
+                        var publicacao = resposta[i];
+
+                        // criando e manipulando elementos do HTML via JavaScript
+                        var divPublicacao = document.createElement("div");
+                        var spanID = document.createElement("span");
+                        var spanTitulo = document.createElement("span");
+                        var spanNome = document.createElement("span");
+                        var divDescricao = document.createElement("div");
+                        var divButtons = document.createElement("div");
+                        var btnDeletar = document.createElement("button");
+
+
+                        spanID.innerHTML = "<span class='destaque'>ID: </span>"+ publicacao.fk_usuario;
+                        spanNome.innerHTML = "<span class='destaque'>Autor: </span>" + publicacao.nome;
+                        spanTitulo.innerHTML = "<span class='destaque'>Título: </span>" + "<br>" + publicacao.titulo;
+                        divDescricao.innerHTML = "<span class='destaque'>Descrição: </span>" + "<br>" + publicacao.descricao;
+                        btnDeletar.innerHTML = "Deletar";
+
+                        divPublicacao.className = "publicacao";
+                        spanTitulo.id = "inputNumero" + publicacao.idComentario;
+                        spanNome.className = "publicacao-nome";
+                        spanTitulo.className = "publicacao-titulo";
+                        divDescricao.className = "publicacao-descricao";
+
+                        divButtons.className = "div-buttons"
+
+
+
+
+                        btnDeletar.className = "publicacao-btn-editar"
+                        btnDeletar.id = "btnDeletar" + publicacao.idComentario;
+                        btnDeletar.setAttribute("onclick", `deletar(${publicacao.idComentario})`);
+
+                        divPublicacao.appendChild(spanID);
+                        divPublicacao.appendChild(spanNome);
+                        divPublicacao.appendChild(spanTitulo);
+                        divPublicacao.appendChild(divDescricao);
+                        divPublicacao.appendChild(divButtons);
+                        divButtons.appendChild(btnDeletar);
+                        feed.appendChild(divPublicacao);
+                    }
+
+                    finalizarAguardar();
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+            finalizarAguardar();
+        });
+    }
 </script>
+
+

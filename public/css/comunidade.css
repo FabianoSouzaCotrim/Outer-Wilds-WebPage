@@ -13,7 +13,6 @@ body{
 main{
     background-color: #101318d8;
     width: 80%;
-    height: 1200px;
     margin: 0 auto;
     margin-top: 10vh;
 }
@@ -30,7 +29,6 @@ main{
     height: 400px;
     display: flex;
     justify-content: space-around;
-    background-color: #072929;
 }
 .div_voto_personagem div{
     display: flex;
@@ -98,7 +96,6 @@ main{
     height: 400px;
     display: flex;
     justify-content: space-around;
-    background-color: #0a1d1d;
 }
 .div_voto_planeta div{
     display: flex;
