@@ -49,6 +49,11 @@ values(null, "gêmeos da ampulheta"),
 
 select * from usuario;
 
+    SELECT p.nome, COUNT(u.idUsuario) AS votos
+    FROM personagem AS p
+    inner JOIN usuario AS u ON (p.idPersonagem = u.fk_personagemFav)
+    GROUP BY u.fk_personagemFav, p.nome;
+
 #update usuario set fk_personagemFav = null where idUsuario = 1;
 
 #insert into usuario(nome, idade, genero, email, senha)
