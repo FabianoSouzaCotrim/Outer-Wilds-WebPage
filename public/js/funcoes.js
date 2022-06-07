@@ -1,5 +1,4 @@
 // sessão
-
 function limparSessao() {
     // aguardar();
     sessionStorage.clear();

@@ -13,8 +13,8 @@ body{
 main{
     background-color: #101318d8;
     width: 80%;
-    height: 2100px;
     margin: 0 auto;
+    padding-bottom: 50px;
 }
 
 .section_historia{
@@ -55,6 +55,18 @@ main{
     border-radius: 10px;
     border: 1px solid #FF7314;
 }
+
+#div_galeria{
+    width: 800px;
+}
+
+#div_galeria img{
+    width: 400px;
+    width: 400px;
+    padding: 10px;
+    border-radius: 15px;
+}
+
 .container{
     display: flex;
     transition: transform 0.5s ease-in-out;

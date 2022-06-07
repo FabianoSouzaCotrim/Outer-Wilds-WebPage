@@ -47,17 +47,22 @@ values(null, "gêmeos da ampulheta"),
 (null, "profundezas do gigante"),
 (null, "embrolho sombrio");
 
+insert into usuario(nome, idade, genero, email, senha, fk_planetaFav, fk_personagemFav)
+values("carlos", 31 , "masculino", "carlos@gmail.com","coxinha123",3 ,2),
+("pedro", 52 , "masculino", "pedro@gmail.com","coxinha123",3 ,2),
+("duda", 25 , "feminino", "duda@gmail.com","coxinha123",5 , 3),
+("sara", 40 , "feminino", "sara@gmail.com","coxinha123", 4 ,3),
+("lucas", 18 , "masculino", "lucas@gmail.com","coxinha123",3 ,4);
+
+
 select * from usuario;
 
-    SELECT p.nome, COUNT(u.idUsuario) AS votos
-    FROM personagem AS p
-    inner JOIN usuario AS u ON (p.idPersonagem = u.fk_personagemFav)
-    GROUP BY u.fk_personagemFav, p.nome;
+#SELECT p.nome, COUNT(u.idUsuario) AS votos
+#FROM personagem AS p
+#inner JOIN usuario AS u ON (p.idPersonagem = u.fk_personagemFav)
+#GROUP BY u.fk_personagemFav, p.nome;
 
 #update usuario set fk_personagemFav = null where idUsuario = 1;
-
-#insert into usuario(nome, idade, genero, email, senha)
-#values("fabiano", 21 , "masculino", "fabiano@gmail.com","coxinha123");
 
 #UPDATE usuario
 #SET fk_personagemFav = "5"

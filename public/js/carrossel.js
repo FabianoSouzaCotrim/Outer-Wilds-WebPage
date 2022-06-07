@@ -15,3 +15,18 @@ function carrossel() {
 }
 
 setInterval(carrossel, 2500)
+
+
+var listaImg = [
+    'css/img/printsdoJogo/embrolhosombro.jpg',
+    'css/img/printsdoJogo/fogueira2.jpg',
+    'css/img/printsdoJogo/fogueira.jpg',
+    'css/img/printsdoJogo/nave.jpg',
+    'css/img/printsdoJogo/recantoLenhoso.png',
+    'css/img/printsdoJogo/puzzle.jpg'
+]
+
+for (let i = 0; i < listaImg.length; i++) {
+    div_galeria.innerHTML += `<img src="${listaImg[i]}">`
+
+}

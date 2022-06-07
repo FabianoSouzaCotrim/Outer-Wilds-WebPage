@@ -1,5 +1,6 @@
 
     if (sessionStorage.length == 0) {
+        comunidade.style.display = "none"
         let navbar2 = document.getElementsByClassName('navbar2')
         navbar2[0].style.display = "flex"
         let navbar3 = document.getElementsByClassName('navbar3')

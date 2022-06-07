@@ -17,7 +17,6 @@
                 <ul><a  href="index.html">Inicio</a></ul>
                 <ul><a href="personagens.html">Personagens</a></ul>
                 <ul><a href="mapaEspacial.html">Mapa Espacial</a></ul>
-                <ul><a href="comunidade.html">Comunidade</a></ul>
                 <ul><a href="dashboard.html">Dashboard</a></ul>
             </li>
             <li class="navbar2">
@@ -41,6 +40,7 @@
                 <h3>Senha:</h3>
                 <input type="password" id="input_senha">
                 </div>
+                <span style="color: red; font-size: 16px;" id="span_loginInvalido"></span>
                 <button onclick="entrar()" id="btn-login">Login</button>
             </div>
         </div>
@@ -54,15 +54,12 @@
         var emailVar = input_login.value;
         var senhaVar = input_senha.value;
         console.log(emailVar + senhaVar)
-/*         if (emailVar == "" || senhaVar == "") {
-            alert("Mensagem de erro para todos os campos em branco");
-            finalizarAguardar();
-            return false;
+
+         if (emailVar == "" || senhaVar == "") {
+            span_loginInvalido.innerHTML = "Email ou senha Inválidos"
         }
         else {
-            setInterval(sumirMensagem, 5000)
-        } */
-
+        span_loginInvalido.innerHTML = ""
         fetch("/usuarios/autenticar", {
             method: "POST",
             headers: {
@@ -94,7 +91,7 @@
 
             } else {
 
-                console.log("Houve um erro ao tentar realizar o login!");
+                span_loginInvalido.innerHTML = "Email ou senha Inválidos"
 
                 resposta.text().then(texto => {
                     console.error(texto);
@@ -108,5 +105,5 @@
 
         return false;
     }
-
+ }
 </script>
