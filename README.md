@@ -1,2 +1,2 @@
 # Outer-Wilds-WebPage
-WebPage estudantil sobre um jogo de exploração espacial (Outer Wilds).
+WebPage estudantil sobre o jogo de exploração espacial (Outer Wilds).
